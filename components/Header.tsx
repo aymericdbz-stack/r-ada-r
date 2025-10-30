@@ -1,4 +1,9 @@
+'use client';
+
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { useState } from "react";
+import { useAuth } from "@/components/AuthProvider";
 
 type NavLink = {
   label: string;
@@ -11,6 +16,20 @@ interface HeaderProps {
 }
 
 export function Header({ links }: HeaderProps) {
+  const router = useRouter();
+  const { user, signOut, loading } = useAuth();
+  const [submitting, setSubmitting] = useState(false);
+
+  const handleSignOut = async () => {
+    setSubmitting(true);
+    try {
+      await signOut();
+      router.replace("/");
+    } finally {
+      setSubmitting(false);
+    }
+  };
+
   return (
     <header className="top-nav">
       <div className="brand">
@@ -27,6 +46,23 @@ export function Header({ links }: HeaderProps) {
             {label}
           </Link>
         ))}
+        {loading ? null : user ? (
+          <div className="nav-authenticated">
+            <span className="nav-identity">{user.email}</span>
+            <button
+              type="button"
+              className="nav-logout"
+              onClick={handleSignOut}
+              disabled={submitting}
+            >
+              {submitting ? "..." : "Déconnexion"}
+            </button>
+          </div>
+        ) : (
+          <Link href="/login" className="nav-cta">
+            Se connecter
+          </Link>
+        )}
       </nav>
     </header>
   );

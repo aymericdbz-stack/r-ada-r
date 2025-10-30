@@ -18,6 +18,9 @@ export type Category = {
   id: string;
   description: string;
   vibe: Event["vibe"];
+  icon?: string;
+  eventCount?: string;
+  actionLabel?: string;
 };
 
 export type Curator = {
@@ -27,6 +30,15 @@ export type Curator = {
   vibe: Event["vibe"];
   followers: string;
   nextEventId: string;
+};
+
+export type FeaturedCalendar = {
+  id: string;
+  name: string;
+  location: string;
+  description: string;
+  icon: string;
+  vibe: Event["vibe"];
 };
 
 export type UserProfile = {
@@ -150,36 +162,99 @@ export const categories: Category[] = [
     description:
       "Talks, conférences et bootcamps pour les passionnés de création digitale et IA.",
     vibe: "avant-garde",
+    icon: "🧠",
+    eventCount: "1 k Événements",
+    actionLabel: "Atelier tech immersif",
   },
   {
     id: "Art Digital",
     description:
       "Expositions immersives, live AV et ateliers autour de l'art numérique.",
     vibe: "avant-garde",
+    icon: "🎨",
+    eventCount: "954 Événements",
+    actionLabel: "Expo art digital",
   },
   {
     id: "Jazz",
     description:
       "Clubs intimistes, sessions improvisées et résidences d'artistes.",
     vibe: "underground",
+    icon: "🎷",
+    eventCount: "624 Événements",
+    actionLabel: "Concert jazz",
   },
   {
     id: "Food",
     description:
       "Tables cachées, diners performatifs et pop-ups culinaires.",
     vibe: "premium",
+    icon: "🥘",
+    eventCount: "37 Événements",
+    actionLabel: "Festival gastronomique",
   },
   {
     id: "Clubbing",
     description:
       "Soirées électro, house & techno avec line-up curaté par les collectifs parisiens.",
     vibe: "underground",
+    icon: "💿",
+    eventCount: "812 Événements",
+    actionLabel: "Nuit clubbing",
   },
   {
     id: "Scène & Spectacle",
     description:
       "Théâtre, danse, opéra et formats hybrides pour scénophiles curieux.",
     vibe: "premium",
+    icon: "🎭",
+    eventCount: "512 Événements",
+    actionLabel: "Spectacle scénique",
+  },
+  {
+    id: "Bien-être",
+    description:
+      "Respiration, mouvement & pratiques holistiques pour garder l&apos;équilibre.",
+    vibe: "premium",
+    icon: "🧘",
+    eventCount: "1 k Événements",
+    actionLabel: "Atelier bien-être",
+  },
+  {
+    id: "Climat",
+    description:
+      "Débats, workshops, activations autour des transitions écologiques.",
+    vibe: "avant-garde",
+    icon: "🌱",
+    eventCount: "512 Événements",
+    actionLabel: "Forum climat",
+  },
+  {
+    id: "IA",
+    description:
+      "Meetups, conférences et labs pour les passionnés d&apos;intelligence artificielle.",
+    vibe: "avant-garde",
+    icon: "🤖",
+    eventCount: "2 k Événements",
+    actionLabel: "Rencontre IA créative",
+  },
+  {
+    id: "Fitness",
+    description:
+      "Sessions sportives, training collectifs et expériences outdoor.",
+    vibe: "premium",
+    icon: "🏃",
+    eventCount: "726 Événements",
+    actionLabel: "Session sportive culturelle",
+  },
+  {
+    id: "Crypto",
+    description:
+      "Rencontres Web3, DAO meetups et formations pour builders.",
+    vibe: "underground",
+    icon: "🪙",
+    eventCount: "1 k Événements",
+    actionLabel: "Forum crypto culture",
   },
 ];
 
@@ -207,6 +282,60 @@ export const curators: Curator[] = [
     vibe: "premium",
     followers: "3.1k",
     nextEventId: "food-lab",
+  },
+];
+
+export const featuredCalendars: FeaturedCalendar[] = [
+  {
+    id: "climate-house",
+    name: "Événements @ Climate House",
+    location: "Paris",
+    description: "Bienvenue à la maison ! Des événements autour de 6 collectifs.",
+    icon: "🏡",
+    vibe: "avant-garde",
+  },
+  {
+    id: "reading-rhythms",
+    name: "Reading Rhythms Global",
+    location: "Global",
+    description: "Not a book club. A reading party pour vivre musique & idées.",
+    icon: "📚",
+    vibe: "premium",
+  },
+  {
+    id: "build-club",
+    name: "Build Club",
+    location: "Sydney",
+    description:
+      "The best place to learn AI. Curated avec l'équipe Outliers chaque semaine.",
+    icon: "🛠️",
+    vibe: "avant-garde",
+  },
+  {
+    id: "south-park",
+    name: "South Park Commons",
+    location: "San Francisco",
+    description:
+      "Communauté de builders et chercheurs. Deep dives, salons et labs.",
+    icon: "🌀",
+    vibe: "premium",
+  },
+  {
+    id: "design-buddies",
+    name: "Design Buddies",
+    location: "Global",
+    description: "Pour les designers qui aiment apprendre, partager et créer.",
+    icon: "🎀",
+    vibe: "avant-garde",
+  },
+  {
+    id: "cursor-community",
+    name: "Cursor Community",
+    location: "Remote",
+    description:
+      "Builders AI-first, sprints produit et feedback loops toutes les semaines.",
+    icon: "⬛",
+    vibe: "avant-garde",
   },
 ];
 

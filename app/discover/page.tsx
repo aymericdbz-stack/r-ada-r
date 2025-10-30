@@ -153,7 +153,7 @@ export default function DiscoverPage() {
                       }`}
                       onClick={() => toggleCategory(category.id)}
                     >
-                      {category.id}
+                      {category.actionLabel ?? category.id}
                     </button>
                   ))}
                 </div>
@@ -189,7 +189,9 @@ export default function DiscoverPage() {
                       <span>{event.availability}</span>
                       <div className="discover-actions">
                         <Link href={`/event/${event.id}`}>Détails</Link>
-                        <button type="button">S&apos;inscrire</button>
+                        <button type="button">
+                          Réserver cet événement culturel
+                        </button>
                       </div>
                     </div>
                   </article>

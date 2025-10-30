@@ -45,7 +45,9 @@ export default function EventPage({ params }: EventPageProps) {
               <div className="event-ticket">
                 <h3>Réservation RadaR</h3>
                 <p>{event.availability}</p>
-                <button type="button">Confirmer ma place</button>
+                <button type="button">
+                  Confirmer ma place pour cette expérience culturelle
+                </button>
               </div>
               <div className="event-curator">
                 <span className="badge">Curator</span>
